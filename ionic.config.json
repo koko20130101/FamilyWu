@@ -1,0 +1,7 @@
+{
+  "name": "FamilyWu",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
