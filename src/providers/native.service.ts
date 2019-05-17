@@ -38,7 +38,7 @@ export class NativeService {
 
             let sync = this.codePush.sync({
                 deploymentKey: deploymentKey,
-                //installMode: InstallMode.IMMEDIATE   //立即更新
+                installMode: InstallMode.IMMEDIATE   //立即更新
             }, (data)=> {
                 //返回data:{"receivedBytes":2925216,"totalBytes":3318152}
                 //console.log(data);
