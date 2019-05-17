@@ -3,7 +3,7 @@ import {CodePush, InstallMode} from '@ionic-native/code-push';
 
 import {Platform} from 'ionic-angular';
 
-import {CODE_PUSH_DEPLOYMENT_KEY, IS_DEBUG} from './constants';
+import {CODE_PUSH_DEPLOYMENT_KEY, IS_DEBUG} from '../common/constants';
 
 @Injectable()
 export class NativeService {
