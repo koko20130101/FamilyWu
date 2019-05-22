@@ -1,16 +1,78 @@
-// http://ionicframework.com/docs/theming/
-
-
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+.members{
+  .level{
+    text-align: center;
+    font-size: 1.6rem;
+    padding:5px 0;
+    border: 1px solid color($colors, primary,deep);
+    position: relative;
+    i{
+      width:6px;
+      height:6px;
+      border: 1px solid;
+      position: absolute;
+      &:before {
+        content: '';
+        width:4px;
+        height:4px;
+        border: 1px solid color($colors, primary,deep);
+        position: absolute;
+      }
+    }
+    .zs-1 {
+      left: -1px;
+      top: -1px;
+      border-color: #fff color($colors, primary, deep) color($colors, primary, deep) #fff;
+      &:before{
+        right:-6px;
+        bottom:-6px;
+      }
+    }
+    .zs-2 {
+      right: -1px;
+      top: -1px;
+      border-color: #fff #fff color($colors, primary, deep) color($colors, primary, deep);
+      &:before{
+        left:-6px;
+        bottom:-6px;
+      }
+    }
+    .zs-3 {
+      left: -1px;
+      bottom: -1px;
+      border-color: color($colors, primary, deep) color($colors, primary, deep) #fff #fff;
+      &:before{
+        right:-6px;
+        top:-6px;
+      }
+    }
+    .zs-4 {
+      right: -1px;
+      bottom: -1px;
+      border-color: color($colors, primary, deep) #fff #fff color($colors, primary, deep);
+      &:before{
+        left:-6px;
+        top:-6px;
+      }
+    }
+  }
+  .member-list{
+    text-align: center;
+    padding-bottom:10px;
+  }
+  .member-item {
+    display: inline-block;
+    padding:3px 5px;
+    margin:10px 5px 0 0;
+    color:color($colors,dark,mid);
+    border: 1px solid color($colors, gray);
+    span {
+      color: color($colors, gray, mid);
+      display: block;
+      font-size:12px;
+    }
+    &.die{
+      border-style: dashed;
+      border-color: color($colors, gray, low);
+    }
+  }
+}
