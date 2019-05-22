@@ -3,6 +3,9 @@
         <ion-title>
             吴氏三冬族谱
         </ion-title>
+        <ion-buttons right>
+            <button ion-button clear (click)="goSistersPage()"><ion-icon name="female"></ion-icon></button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
@@ -10,16 +13,22 @@
     <ion-refresher (ionRefresh)="doRefresh($event)" >
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
-    <ion-fab bottom right>
-        <button ion-fab mini color="light" (click)="doRefresh()"><ion-icon name="female"></ion-icon></button>
-    </ion-fab>
     <div class="root-system">
         <p>吴海谷志善庆庭，</p>
         <p>振林道义有宝宗。</p>
         <p>炳作敏学承继祖，</p>
         <p>琴棋绍秀胜长峰。</p>
     </div>
-    <div class="members">
+    <ion-list ngClass="search">
+        <ion-item>
+            <ion-input type="text" placeholder="请输入姓名查询是否在族谱中"></ion-input>
+            <button ion-button item-right color="secondary">查询</button>
+        </ion-item>
+    </ion-list>
+    <div class="search-result">
+
+    </div>
+    <!--<div class="members">
         <div class="member-list" *ngFor="let level of memberList">
             <div class="level">
                 {{level.levelName}}
@@ -33,5 +42,5 @@
                 <span *ngIf = "!!member.belongTo">（{{member.belongTo}}）</span>
             </div>
         </div>
-    </div>
+    </div>-->
 </ion-content>

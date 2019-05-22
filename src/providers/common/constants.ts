@@ -14,4 +14,5 @@ export const CODE_PUSH_DEPLOYMENT_KEY = {
 //接口
 export const ENDPOINT = {
     members: 'members',    //家族成员
+    sisters: 'sisters',    //家族姐妹成员
 };

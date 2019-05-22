@@ -8,6 +8,7 @@ export class GlobalVars{
     //父组件与子组件之间通讯
     error: EventEmitter<any> = new EventEmitter<any>();
 
+    token:string = null;
     isMobile:boolean = false;       //是否真机环境
     loading:any;
 }

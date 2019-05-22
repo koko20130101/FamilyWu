@@ -8,6 +8,7 @@ import {Level} from '../../models/level';
 export class MemberService {
 
     members: any = [];
+    sisters: any = [];
 
     constructor(public api: Api,
                 public storage: Storage) {
@@ -27,7 +28,27 @@ export class MemberService {
                     this.members.push(newItem);
                 }
 
-                this.storage.set('members', this.members).then((data)=> {
+                this.storage.set(ENDPOINT.members, this.members).then((data)=> {
+                    console.log(data)
+                });
+            }
+        });
+        return seqEvent;
+    }
+    getSisters() {
+        let parameters = {};
+        let seqEvent = this.api.post(ENDPOINT.sisters, parameters);
+        seqEvent.subscribe(ENDPOINT.sisters, (res: any)=> {
+            //取消订阅
+            seqEvent.unsubscribe(ENDPOINT.sisters);
+            if (res.Status == '0') {
+                this.sisters = [];
+                for (let item of res.Data) {
+                    let newItem = new Level(item);
+                    this.sisters.push(newItem);
+                }
+
+                this.storage.set(ENDPOINT.sisters, this.sisters).then((data)=> {
                     console.log(data)
                 });
             }

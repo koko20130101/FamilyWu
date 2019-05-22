@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
-import {NavController,Refresher} from 'ionic-angular';
+import {IonicPage,NavController,Refresher} from 'ionic-angular';
 
 import {GlobalVars, NativeService, MemberService, PopupService,ENDPOINT} from '../../providers';
 
 import{Level} from '../../models/level';
 
+@IonicPage()
 @Component({
     selector: 'page-home',
     templateUrl: 'home.html'
@@ -19,15 +20,23 @@ export class HomePage {
                 public popup: PopupService,
                 public nativeService: NativeService) {
         this.globalVars.isMobile = this.nativeService.isMobile();
+        this.memberService.storage.get('token').then( data => {
+            this.globalVars.token = data;
+        });
     }
 
     ionViewDidLoad() {
-        this.getMembersInfo();
+        if(!this.globalVars.token){
+            //如果没有登录
+
+        }else{
+            this.getMembersInfo();
+        }
     }
 
     getMembersInfo() {
         if (!this.memberList) {
-            this.memberService.storage.get('members').then(data=> {
+            this.memberService.storage.get(ENDPOINT.members).then(data=> {
                 if (!!data) {
                     this.memberList = data;
                 } else {
@@ -66,6 +75,11 @@ export class HomePage {
             }
         })
     }
+
+    goSistersPage(){
+        this.navCtrl.push('SistersPage');
+    }
+
 
     //下拉刷新
     doRefresh(refresher: Refresher) {
