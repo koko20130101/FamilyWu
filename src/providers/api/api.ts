@@ -7,9 +7,9 @@ import {GlobalVars} from '../common/global';
 
 @Injectable()
 export class Api {
-    HOST: string = 'http://172.17.2.18:8080/family-wu-data/data/';
+    // HOST: string = 'http://172.17.2.18:8080/family-wu-data/data/';
     // HOST: string = 'http://192.168.0.102:8080/family-wu-data/data/';
-    // HOST: string = 'http://www.scbbsc.com/FamilyWu/data/';
+    HOST: string = 'http://www.scbbsc.com/FamilyWu/data/';
     Extension = '.json';    //接口后缀
 
 
